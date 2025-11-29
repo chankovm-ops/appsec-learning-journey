@@ -1,6 +1,6 @@
 # Daily Progress Log
 
-## Day 1: [Date]
+## Day 1: [29.11.2025]
 **Focus:** HTTP Protocol Fundamentals
 **Resource:** MDN Web Docs & Professor Messer
 **Learnings:**
