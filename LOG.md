@@ -1,12 +1,13 @@
 # Daily Progress Log
 
 ## Day 1: [29.11.2025]
-**Focus:** HTTP Protocol Fundamentals
-**Resource:** MDN Web Docs & Professor Messer
+**Focus:** Anatomy of a Request/Response
+**Resources:** MDN Web Docs & MonsterLessons Academy
 **Learnings:**
-* Learned the structure of an HTTP Request (Verb, URI, Version, Headers, Body).
-* Understood that `GET` parameters are in the URL, while `POST` parameters are in the body.
-* **QA Insight:** This explains why some of my bugs reproduce via URL sharing and others don't.
+* **Method:** I saw a `GET` request. This asks the server for data.
+* **Status Code:** The server returned `200`, which means "OK".
+* **Headers:** I noticed the `User-Agent` header, which tells the server I am using [Your Browser Name].
+* **Insight:** I realized that "Cookies" are just lines of text sent in the Header. If I can change this text in Burp Suite later, I might be able to trick the server.
 
 ## Day 2: [Date]
 **Focus:** Setting up Burp Suite
