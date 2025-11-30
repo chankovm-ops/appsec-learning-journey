@@ -1,7 +1,8 @@
 # Daily Progress Log
 
-## Day 1: [29.11.2025]
+## Lesson 1: [29.11.2025]
 **Focus:** Anatomy of a Request/Response
+
 **Resources:** MDN Web Docs & MonsterLessons Academy
 
 **Learnings:**
@@ -10,8 +11,9 @@
 * **Headers:** I noticed the `User-Agent` header, which tells the server I am using [Your Browser Name].
 * **Insight:** I realized that "Cookies" are just lines of text sent in the Header. If I can change this text in Burp Suite later, I might be able to trick the server.
 
-## Day 2: [29.11.2025]
+## Lesson 2: [29.11.2025]
 **Focus:** Burp Suite Installation & Proxy Chaining
+
 **Resource:** Elevate Cyber Video
 
 **Learnings:**
@@ -20,8 +22,9 @@
 * **First Intercept:** Successfully paused a request to Google.
 * **QA Insight:** This is different from the "Network Tab" because I can actually *modify* the data before the server sees it. The Network tab is read-only; Burp is read-write.
 
-## Day 3: Burp Repeater [29.11.2025]
+## Lesson 3: Burp Repeater [29.11.2025]
 **Focus:** Modifying HTTP Requests in Flight
+
 **Resource:** PortSwigger Documentation
 
 **Learnings:**
@@ -29,8 +32,9 @@
 * **The Experiment:** I searched for "cat", intercepted the request, changed the parameter `q=cat` to `q=dog` in Repeater, and the server responded with search results for dogs.
 * **QA Insight:** In manual QA, if I want to test 50 different inputs, I have to type them into the UI 50 times. With Repeater, I can just change the text and hit "Send" 50 times in seconds. This is much faster for testing edge cases.
 
-## Day 4: GET vs POST [30.11.2025]
+## Lesson 4: GET vs POST [30.11.2025]
 **Focus:** Request Methods & Data Placement
+
 **Resource:** HTTP Methods (MDN) / TestPHP Vulnweb
 
 **Learnings:**
@@ -39,8 +43,9 @@
 * **The "Envelope":** I intercepted a login attempt on `testphp.vulnweb.com`. Even though the password was dots `••••` on the screen, Burp showed me clear text `pass=password123` in the body.
 * **QA Insight:** I need to check my company's application. If any sensitive data (tokens, PII) appears in the URL bar, it's a security defect because URLs are logged in browser history.
 
-## Day 5: Cookies & Sessions [30.11.2025]
+## Lesson 5: Cookies & Sessions [30.11.2025]
 **Focus:** Session Management & State
+
 **Resource:** MDN HTTP Cookies
 
 **Learnings:**
@@ -48,3 +53,14 @@
 * **The Experiment:** I logged into `testphp.vulnweb.com`, found the session cookie in the DevTools "Application" tab, and deleted it. Refreshing the page immediately logged me out.
 * **QA Insight:** This explains why "Clear Cache & Cookies" fixes so many bugs—it forces a fresh handshake with the server.
 * **Security Insight:** If a hacker can copy my cookie text and paste it into their browser, they *are* me. They don't need my password. This is why "Secure" and "HttpOnly" flags on cookies are critical (I'll learn those later).
+
+## Lesson 6: First Logic Hack [30.11.2025]
+**Focus:** Consolidating HTTP, Cookies, and Repeater
+
+**Resource:** PortSwigger Lab: User role controlled by request parameter
+
+**Learnings:**
+* **The Vulnerability:** The application trusted the cookie sent by the user without verifying it on the server.
+* **The Exploit:** I intercepted the request where the cookie said `admin=false`. I changed it to `true` in Repeater.
+* **Result:** The server believed me and served the Admin Panel.
+* **QA Insight:** This is a classic "Client-Side Trust" bug. As a QA, I should always ask: "Can I change this value in the API call?" If the backend accepts it without checking, it's a bug.
