@@ -3,6 +3,7 @@
 ## Day 1: [29.11.2025]
 **Focus:** Anatomy of a Request/Response
 **Resources:** MDN Web Docs & MonsterLessons Academy
+
 **Learnings:**
 * **Method:** I saw a `GET` request. This asks the server for data.
 * **Status Code:** The server returned `200`, which means "OK".
@@ -12,6 +13,7 @@
 ## Day 2: [29.11.2025]
 **Focus:** Burp Suite Installation & Proxy Chaining
 **Resource:** Elevate Cyber Video
+
 **Learnings:**
 * **Proxying:** Configured FoxyProxy to route traffic to `127.0.0.1:8080`.
 * **The Handshake:** Learned that Burp acts as a "Man-in-the-Middle". I had to install Burp's CA Certificate so my browser wouldn't reject the connection as "Insecure."
@@ -21,6 +23,7 @@
 ## Day 3: Burp Repeater [29.11.2025]
 **Focus:** Modifying HTTP Requests in Flight
 **Resource:** PortSwigger Documentation
+
 **Learnings:**
 * **Repeater:** Learned that I can "replay" a request as many times as I want without using the browser.
 * **The Experiment:** I searched for "cat", intercepted the request, changed the parameter `q=cat` to `q=dog` in Repeater, and the server responded with search results for dogs.
@@ -29,8 +32,19 @@
 ## Day 4: GET vs POST [30.11.2025]
 **Focus:** Request Methods & Data Placement
 **Resource:** HTTP Methods (MDN) / TestPHP Vulnweb
+
 **Learnings:**
 * **GET:** I observed that GET requests put parameters in the URL (Query String).
 * **POST:** I observed that POST requests hide parameters in the Body (bottom of the request).
 * **The "Envelope":** I intercepted a login attempt on `testphp.vulnweb.com`. Even though the password was dots `••••` on the screen, Burp showed me clear text `pass=password123` in the body.
 * **QA Insight:** I need to check my company's application. If any sensitive data (tokens, PII) appears in the URL bar, it's a security defect because URLs are logged in browser history.
+
+## Day 5: Cookies & Sessions [30.11.2025]
+**Focus:** Session Management & State
+**Resource:** MDN HTTP Cookies
+
+**Learnings:**
+* **Statelessness:** Learned that HTTP doesn't remember me. The "Cookie" is the only thing keeping me logged in.
+* **The Experiment:** I logged into `testphp.vulnweb.com`, found the session cookie in the DevTools "Application" tab, and deleted it. Refreshing the page immediately logged me out.
+* **QA Insight:** This explains why "Clear Cache & Cookies" fixes so many bugs—it forces a fresh handshake with the server.
+* **Security Insight:** If a hacker can copy my cookie text and paste it into their browser, they *are* me. They don't need my password. This is why "Secure" and "HttpOnly" flags on cookies are critical (I'll learn those later).
