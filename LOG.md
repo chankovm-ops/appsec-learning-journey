@@ -25,3 +25,12 @@
 * **Repeater:** Learned that I can "replay" a request as many times as I want without using the browser.
 * **The Experiment:** I searched for "cat", intercepted the request, changed the parameter `q=cat` to `q=dog` in Repeater, and the server responded with search results for dogs.
 * **QA Insight:** In manual QA, if I want to test 50 different inputs, I have to type them into the UI 50 times. With Repeater, I can just change the text and hit "Send" 50 times in seconds. This is much faster for testing edge cases.
+
+## Day 4: GET vs POST [30.11.2025]
+**Focus:** Request Methods & Data Placement
+**Resource:** HTTP Methods (MDN) / TestPHP Vulnweb
+**Learnings:**
+* **GET:** I observed that GET requests put parameters in the URL (Query String).
+* **POST:** I observed that POST requests hide parameters in the Body (bottom of the request).
+* **The "Envelope":** I intercepted a login attempt on `testphp.vulnweb.com`. Even though the password was dots `••••` on the screen, Burp showed me clear text `pass=password123` in the body.
+* **QA Insight:** I need to check my company's application. If any sensitive data (tokens, PII) appears in the URL bar, it's a security defect because URLs are logged in browser history.
