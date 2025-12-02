@@ -64,3 +64,14 @@
 * **The Exploit:** I intercepted the request where the cookie said `admin=false`. I changed it to `true` in Repeater.
 * **Result:** The server believed me and served the Admin Panel.
 * **QA Insight:** This is a classic "Client-Side Trust" bug. As a QA, I should always ask: "Can I change this value in the API call?" If the backend accepts it without checking, it's a bug.
+
+## Lesson 7: SQL Injection (Retrieval) [01.12.2025]
+**Focus:** Breaking the WHERE clause
+**Resource:** Computerphile / PortSwigger
+**Learnings:**
+* **The Theory:** SQLi works by breaking out of the data context using a single quote `'` and appending new logic.
+* **The Payload:** Used `' OR 1=1--`.
+    * `'` closed the category string.
+    * `OR 1=1` is always true, so the database returned *everything*.
+    * `--` commented out the rest of the legitimate query so it wouldn't crash.
+* **QA Insight:** I should test search bars with a single quote `'`. If the page crashes or returns a database error, it's likely vulnerable.
