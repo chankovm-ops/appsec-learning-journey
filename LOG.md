@@ -67,7 +67,9 @@
 
 ## Lesson 7: SQL Injection (Retrieval) [01.12.2025]
 **Focus:** Breaking the WHERE clause
+
 **Resource:** Computerphile / PortSwigger
+
 **Learnings:**
 * **The Theory:** SQLi works by breaking out of the data context using a single quote `'` and appending new logic.
 * **The Payload:** Used `' OR 1=1--`.
