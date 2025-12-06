@@ -77,3 +77,14 @@
     * `OR 1=1` is always true, so the database returned *everything*.
     * `--` commented out the rest of the legitimate query so it wouldn't crash.
 * **QA Insight:** I should test search bars with a single quote `'`. If the page crashes or returns a database error, it's likely vulnerable.
+
+## Day 8: SQLi Login Bypass [06.12.2025]
+**Focus:** Commenting out password checks
+
+**Resource:** PortSwigger Lab
+
+**Learnings:**
+* **The Comment:** In SQL, `--` (dash dash space) means "comment."
+* **The Hack:** I logged in as `administrator` by typing `administrator' --`.
+* **Result:** The application ignored the password field entirely because I commented it out in the query.
+* **QA Insight:** Every login form I test from now on gets a `' --` test.
