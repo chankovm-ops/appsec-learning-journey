@@ -78,7 +78,7 @@
     * `--` commented out the rest of the legitimate query so it wouldn't crash.
 * **QA Insight:** I should test search bars with a single quote `'`. If the page crashes or returns a database error, it's likely vulnerable.
 
-## Day 8: SQLi Login Bypass [06.12.2025]
+## Lesson 8: SQLi Login Bypass [06.12.2025]
 **Focus:** Commenting out password checks
 
 **Resource:** PortSwigger Lab
@@ -88,3 +88,13 @@
 * **The Hack:** I logged in as `administrator` by typing `administrator' --`.
 * **Result:** The application ignored the password field entirely because I commented it out in the query.
 * **QA Insight:** Every login form I test from now on gets a `' --` test.
+
+## Lesson 9: Burp Intruder [06.12.2025]
+**Focus:** Automation & Brute Force
+
+**Resource:** YouTube Guides
+
+**Learnings:**
+* **Intruder:** Used for "Fuzzing" (sending many inputs to one place).
+* **Sniper Attack:** The default mode. Replaces one placeholder with a list of words.
+* **Analysis:** Learning to read the results is key. I look for anomalies in "Response Length" or "Status Code" to find the successful login.
