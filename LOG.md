@@ -4,6 +4,8 @@
 **Focus:** Anatomy of a Request/Response
 
 **Resources:** MDN Web Docs & MonsterLessons Academy
+* [MDN HTTP Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)
+* [HTTP Request and Response Format - You Must Know It](https://www.youtube.com/watch?v=NqKytCEaqMw)
 
 **Learnings:**
 * **Method:** I saw a `GET` request. This asks the server for data.
@@ -15,6 +17,7 @@
 **Focus:** Burp Suite Installation & Proxy Chaining
 
 **Resource:** Elevate Cyber Video
+* [How to use Burp Suite for Beginners](https://www.youtube.com/watch?v=GxvFqgCBW-8)
 
 **Learnings:**
 * **Proxying:** Configured FoxyProxy to route traffic to `127.0.0.1:8080`.
@@ -26,6 +29,7 @@
 **Focus:** Modifying HTTP Requests in Flight
 
 **Resource:** PortSwigger Documentation
+* [Burp for Beginners: How to Use Repeater](https://www.youtube.com/watch?v=LfuU5u6C2Sk)
 
 **Learnings:**
 * **Repeater:** Learned that I can "replay" a request as many times as I want without using the browser.
@@ -36,6 +40,8 @@
 **Focus:** Request Methods & Data Placement
 
 **Resource:** HTTP Methods (MDN) / TestPHP Vulnweb
+* [HTTP GET vs POST explained for beginners](https://www.youtube.com/watch?v=tkfVQK6UxDI)
+
 
 **Learnings:**
 * **GET:** I observed that GET requests put parameters in the URL (Query String).
@@ -47,6 +53,7 @@
 **Focus:** Session Management & State
 
 **Resource:** MDN HTTP Cookies
+* [What is a cookie?](https://www.youtube.com/watch?v=I01XMRo2ESg)
 
 **Learnings:**
 * **Statelessness:** Learned that HTTP doesn't remember me. The "Cookie" is the only thing keeping me logged in.
@@ -58,6 +65,7 @@
 **Focus:** Consolidating HTTP, Cookies, and Repeater
 
 **Resource:** PortSwigger Lab: User role controlled by request parameter
+* [Business Logic Vulnerabilities | Complete Guide](https://www.youtube.com/watch?v=HLS2-kGHupU)
 
 **Learnings:**
 * **The Vulnerability:** The application trusted the cookie sent by the user without verifying it on the server.
@@ -69,6 +77,8 @@
 **Focus:** Breaking the WHERE clause
 
 **Resource:** Computerphile / PortSwigger
+* [What is SQL injection (SQLi)?](https://portswigger.net/web-security/sql-injection)
+* [Running an SQL Injection Attack - Computerphile](https://www.youtube.com/watch?v=ciNHn38EyRc)
 
 **Learnings:**
 * **The Theory:** SQLi works by breaking out of the data context using a single quote `'` and appending new logic.
@@ -82,6 +92,8 @@
 **Focus:** Commenting out password checks
 
 **Resource:** PortSwigger Lab
+* [Subverting application logic](https://portswigger.net/web-security/sql-injection#subverting-application-logic)
+* [SQL Injection Login Bypass - PortSwigger Web Security Academy Series](https://www.youtube.com/watch?v=VO1dIxidYTo)
 
 **Learnings:**
 * **The Comment:** In SQL, `--` (dash dash space) means "comment."
@@ -93,6 +105,7 @@
 **Focus:** Automation & Brute Force
 
 **Resource:** YouTube Guides
+* [Burp for Beginners: How to Use Intruder](https://youtu.be/mibKttwhbRk?si=KRLHAGhlg1pbeFu5)
 
 **Learnings:**
 * **Intruder:** Used for "Fuzzing" (sending many inputs to one place).
