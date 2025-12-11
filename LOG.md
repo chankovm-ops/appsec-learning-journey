@@ -111,3 +111,16 @@
 * **Intruder:** Used for "Fuzzing" (sending many inputs to one place).
 * **Sniper Attack:** The default mode. Replaces one placeholder with a list of words.
 * **Analysis:** Learning to read the results is key. I look for anomalies in "Response Length" or "Status Code" to find the successful login.
+
+## Lesson 10: SQLi UNION Attacks [11.12.2025]
+**Focus:** Determining Column Count
+
+**Resource:** Rana Khalil / PortSwigger
+* [SQL Injection - Lab #3 SQLi UNION attack determining the number of columns returned by the query](https://youtu.be/umXGHbEyW5I?si=kmoWkKY76K60VAWb)
+* [SQL injection UNION attacks](https://portswigger.net/web-security/sql-injection/union-attacks)
+
+**Learnings:**
+* **The Rule:** UNION statements only work if the number of columns matches the original query.
+* **The Technique:** I used `' ORDER BY X--` to guess the number of columns. When I incremented X until the page crashed (Internal Server Error), I knew the limit.
+* **QA Insight:** If I see a search filter, I should try sorting by non-existent columns. If it throws a 500 error, I know the database is exposed.
+
