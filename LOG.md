@@ -148,4 +148,14 @@
 * **The Experiment:** I posted a comment with `<script>alert(1)</script>`. Now, anyone who reads the blog gets the popup.
 * **QA Insight:** I need to test all "Save" fields (User Bio, Comments, Notes) for XSS. If I save a script and it executes when I view it later, it's Stored XSS.
 
+## Lesson 15: Username Enumeration [13.12.2025]
+**Focus:** Analyzing Error Messages
 
+**Resource:** Rana Khalil
+* [Vulnerabilities in password-based login](https://portswigger.net/web-security/authentication/password-based)
+* [Authentication Vulnerabilities - Lab #1 Username enumeration via different responses | Long Version](https://www.youtube.com/watch?v=UGw7Ph-9dL8)
+
+**Learnings:**
+* **The Leak:** If an app tells me "User not found," it helps me. I can throw away that username and focus only on the valid ones.
+* **The Fix:** Developers should always use generic messages ("Invalid credentials") and ensure the response time is the same (to prevent Timing Attacks).
+* **QA Insight:** I will check my company's login page. If I type a random user and it says "User not found," I'm filing a bug.
