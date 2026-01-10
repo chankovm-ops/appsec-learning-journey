@@ -160,7 +160,7 @@
 * **The Fix:** Developers should always use generic messages ("Invalid credentials") and ensure the response time is the same (to prevent Timing Attacks).
 * **QA Insight:** I will check my company's login page. If I type a random user and it says "User not found," I'm filing a bug.
 
-## Day 16: Vertical Privilege Escalation [10.01.2026]
+## Lesson 16: Vertical Privilege Escalation [10.01.2026]
 **Focus:** Finding Hidden Admin Panels
 
 **Resource:** robots.txt & PortSwigger
@@ -172,3 +172,14 @@
 * **Security by Obscurity:** Hiding a link doesn't secure it. If I guess the URL (`/admin`), I shouldn't be able to use it.
 * **The Check:** The server must check "Is this user an Admin?" *before* rendering the page.
 * **QA Insight:** I will check `robots.txt` on my staging servers to see if devs are hiding admin routes there.
+
+## Lesson 17: Horizontal Privilege Escalation (IDOR) [10.01.2026]
+**Focus:** Accessing Other Users' Data
+
+**Resource:** InsiderPhD
+* [Finding Your First Bug: Manual IDOR Hunting](https://www.youtube.com/watch?v=gINAtzdccts)
+* [Horizontal privilege escalation](https://portswigger.net/web-security/access-control#horizontal-privilege-escalation)
+
+**Learnings:**
+* **The Flaw:** The application trusted my input (`id=carlos`) without checking if I *am* Carlos.
+* **QA Insight:** This is the #1 bug I can find as a Manual QA. Every time I see an ID in the URL, I should change it.
