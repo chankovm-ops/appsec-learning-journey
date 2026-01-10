@@ -159,3 +159,16 @@
 * **The Leak:** If an app tells me "User not found," it helps me. I can throw away that username and focus only on the valid ones.
 * **The Fix:** Developers should always use generic messages ("Invalid credentials") and ensure the response time is the same (to prevent Timing Attacks).
 * **QA Insight:** I will check my company's login page. If I type a random user and it says "User not found," I'm filing a bug.
+
+## Day 16: Vertical Privilege Escalation [10.01.2026]
+**Focus:** Finding Hidden Admin Panels
+
+**Resource:** robots.txt & PortSwigger
+* [Access control vulnerabilities and privilege escalation](https://portswigger.net/web-security/access-control#what-is-access-control)
+* [Vertical privilege escalation](https://portswigger.net/web-security/access-control#vertical-privilege-escalation)
+* [Broken Access Control | Complete Guide ](https://www.youtube.com/watch?v=_jz5qFWhLcg)
+
+**Learnings:**
+* **Security by Obscurity:** Hiding a link doesn't secure it. If I guess the URL (`/admin`), I shouldn't be able to use it.
+* **The Check:** The server must check "Is this user an Admin?" *before* rendering the page.
+* **QA Insight:** I will check `robots.txt` on my staging servers to see if devs are hiding admin routes there.
