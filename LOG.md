@@ -183,3 +183,15 @@
 **Learnings:**
 * **The Flaw:** The application trusted my input (`id=carlos`) without checking if I *am* Carlos.
 * **QA Insight:** This is the #1 bug I can find as a Manual QA. Every time I see an ID in the URL, I should change it.
+
+## Lesson 18: Password Reset Poisoning [10.01.2026]
+**Focus:** Manipulating Host Headers
+
+**Resource:** PortSwigger
+* [HTTP Host header attacks](https://portswigger.net/web-security/host-header)
+* [Password reset poisoning](https://portswigger.net/web-security/host-header/exploiting/password-reset-poisoning)
+
+**Learnings:**
+* **The Mechanism:** The code used `request.header('Host')` to generate the email link.
+* **The Exploit:** I intercepted the "Forgot Password" request and changed the Host header to my Exploit Server. The victim received a link pointing to ME.
+* **Impact:** Critical. Full account takeover.
