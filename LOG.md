@@ -195,3 +195,15 @@
 * **The Mechanism:** The code used `request.header('Host')` to generate the email link.
 * **The Exploit:** I intercepted the "Forgot Password" request and changed the Host header to my Exploit Server. The victim received a link pointing to ME.
 * **Impact:** Critical. Full account takeover.
+
+## Lesson 19: OS Command Injection (Simple Case) [11.01.2026]
+**Focus:** Appending system commands to application parameters.
+
+**Resource:** PortSwigger Academy.
+* [OS command injection](https://portswigger.net/web-security/os-command-injection)
+
+**Learnings:**
+* **Command Chaining:** Learned that characters like `|` (pipe) or `&` (ampersand) allow me to run multiple commands in a single string.
+* **The Payload:** Injected `| whoami` into the `storeId` parameter.
+* **The Result:** The server returned its own system username (e.g., `www-data`), proving I had executed code on the underlying operating system.
+* **QA Insight:** I should look for features that interact with the server environment (e.g., generating PDFs, checking server status) and test them with command separators.
