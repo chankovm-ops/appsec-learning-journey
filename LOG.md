@@ -207,3 +207,12 @@
 * **The Payload:** Injected `| whoami` into the `storeId` parameter.
 * **The Result:** The server returned its own system username (e.g., `www-data`), proving I had executed code on the underlying operating system.
 * **QA Insight:** I should look for features that interact with the server environment (e.g., generating PDFs, checking server status) and test them with command separators.
+
+## Lesson 20: Blind OS Command Injection (Time-Based) [14.01.2026]
+**Focus:** Detecting execution through latency.
+**Resource:** PortSwigger Academy.
+**Learnings:**
+* **Side-Channels:** Learned that even if a server doesn't "talk back" (no output), I can still confirm execution by making it "busy."
+* **The Command:** Appended `|| sleep 10 ||` to a parameter.
+* **The Result:** The HTTP response took 10 seconds to return, proving the server executed my code.
+* **QA Insight:** Always monitor the "Response Time" in the Network tab. If certain inputs cause a massive delay, it might be more than just a performance bug.
