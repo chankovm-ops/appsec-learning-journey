@@ -231,3 +231,13 @@
 * **Execution:** By uploading a `.php` file and then requesting it, the server pokes its own filesystem and returns the result to me.
 * **QA Insight:** Testing "Positive" cases (can I upload a JPG?) isn't enough. I must test "Negative" cases by trying to upload scripts and observing if the server tries to execute them or returns them as plain text.
 
+## Lesson 22: Directory (Path) Traversal [14.01.2026]
+**Focus:** Stepping out of the web root to read system files.
+
+**Resource:** PortSwigger
+* [Path traversal](https://portswigger.net/web-security/file-path-traversal)
+
+**Learnings:**
+* **The Sequence:** `../` is a directive that moves the file pointer up one level in the directory tree.
+* **The Target:** Accessed `/etc/passwd`, a classic proof-of-concept for traversal.
+* **QA Insight:** Any parameter that references a filename is a security risk. I should test if I can access files outside the intended directory.
