@@ -208,7 +208,7 @@
 * **The Result:** The server returned its own system username (e.g., `www-data`), proving I had executed code on the underlying operating system.
 * **QA Insight:** I should look for features that interact with the server environment (e.g., generating PDFs, checking server status) and test them with command separators.
 
-## Lesson 20: Blind OS Command Injection (Time-Based) [14.01.2026]
+## Lesson 20: Blind OS Command Injection (Time-Based) [13.01.2026]
 **Focus:** Detecting execution through latency.
 
 **Resource:** PortSwigger Academy.
@@ -219,4 +219,15 @@
 * **The Command:** Appended `|| sleep 10 ||` to a parameter.
 * **The Result:** The HTTP response took 10 seconds to return, proving the server executed my code.
 * **QA Insight:** Always monitor the "Response Time" in the Network tab. If certain inputs cause a massive delay, it might be more than just a performance bug.
+
+## Lesson 21: Remote Code Execution via File Upload [14.01.2026]
+**Focus:** Uploading and executing server-side scripts.
+
+**Resource:** PortSwigger
+* File upload vulnerabilities focus on [Exploiting unrestricted file uploads to deploy a web shell](https://portswigger.net/web-security/file-upload#exploiting-unrestricted-file-uploads-to-deploy-a-web-shell)
+
+**Learnings:**
+* **The Web Shell:** Learned that a file upload field is a direct gateway to the server's filesystem if not restricted.
+* **Execution:** By uploading a `.php` file and then requesting it, the server pokes its own filesystem and returns the result to me.
+* **QA Insight:** Testing "Positive" cases (can I upload a JPG?) isn't enough. I must test "Negative" cases by trying to upload scripts and observing if the server tries to execute them or returns them as plain text.
 
