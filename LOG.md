@@ -241,3 +241,26 @@
 * **The Sequence:** `../` is a directive that moves the file pointer up one level in the directory tree.
 * **The Target:** Accessed `/etc/passwd`, a classic proof-of-concept for traversal.
 * **QA Insight:** Any parameter that references a filename is a security risk. I should test if I can access files outside the intended directory.
+
+## Lesson 23: File Upload Race Conditions [15.01.2026]
+**Focus:** Exploiting the timing gap between upload and validation.
+
+**Resource:** PortSwigger Academy.
+* [Exploiting file upload race conditions](https://portswigger.net/web-security/file-upload#exploiting-file-upload-race-conditions)
+
+**Learnings:**
+* **Timing:** Security is often a process. If I can interact with the server mid-process, I can bypass "delete-after-check" logic.
+* **The Tools:** Used Burp Intruder to "flood" the server with requests to catch the file before it vanished.
+* **QA Insight:** "Speed" and "Concurrency" are security factors. Testing how an app handles multiple simultaneous requests can reveal these deep logic flaws.
+
+## Lesson Summary: Server Takeover (RCE & Traversal) [15.01.2026]
+**Focus:** Remote Code Execution (RCE) and File System Access.
+
+**Learnings:**
+* **Command Injection:** Learned to chain OS commands using `|`, `;`, and `&`.
+* **Blind Injection:** Used time-based delays (`sleep`) to confirm execution when output is hidden.
+* **File Uploads:** Uploaded PHP web shells to gain a persistent "foot in the door."
+* **Path Traversal:** Navigated the directory tree using `../` to read sensitive files like `/etc/passwd`.
+* **Bypass Logic:** Explored how filters can be tricked by nesting sequences or using race conditions.
+
+
