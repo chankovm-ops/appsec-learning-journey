@@ -263,4 +263,22 @@
 * **Path Traversal:** Navigated the directory tree using `../` to read sensitive files like `/etc/passwd`.
 * **Bypass Logic:** Explored how filters can be tricked by nesting sequences or using race conditions.
 
+## Lesson 24: Burp Intruder Attack Types [15.01.2026]
+**Focus:** Understanding automation logic and permutations.
 
+**Resource:** Burp Suite Documentation / Hands-on logic.
+
+**Learnings:**
+* **Attack Types:** Distinguished between Sniper (one target), Pitchfork (paired lists), and Cluster Bomb (all combinations).
+* **Efficiency:** Learned that Cluster Bomb is the most thorough but also the "noisiest" and slowest due to the high volume of requests ($List A \times List B$).
+* **QA Insight:** Automated brute forcing isn't just about speed; it's about choosing the right "Attack Type" to match the logic of the vulnerability I'm testing.
+
+## Day 29: Payload Processing Rules
+**Focus:** Transforming data on-the-fly for complex attacks.
+
+**Resource:** Burp Suite Professional / Community Features.
+
+**Learnings:**
+* **Scalability:** Learned that processing rules allow me to use a single "clean" wordlist for many different types of attacks.
+* **Chaining:** Discovered that I can stack rules (e.g., Prefix -> Hash -> Encode) to match the specific requirements of a modern web API.
+* **QA Insight:** Many bugs are hidden behind encoding. If I only test "plain text," I might miss vulnerabilities that only trigger when the data is formatted a certain way (like JSON or Base64).
