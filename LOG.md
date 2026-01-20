@@ -283,7 +283,7 @@
 * **Chaining:** Discovered that I can stack rules (e.g., Prefix -> Hash -> Encode) to match the specific requirements of a modern web API.
 * **QA Insight:** Many bugs are hidden behind encoding. If I only test "plain text," I might miss vulnerabilities that only trigger when the data is formatted a certain way (like JSON or Base64).
 
-## Lesson 25: Advanced Filtering & Logging [20.01.2026]
+## Lesson 26: Advanced Filtering & Logging [20.01.2026]
 **Focus:** Managing high-volume traffic data.
 
 **Resource:** Burp Suite Proxy Filter & Logger.
@@ -298,6 +298,30 @@
 * **Search Context:** Confirmed that Burp searches both Request and Response by default.
 * **Refinement:** Learned to use Regex and Case Sensitivity to reduce false positives in high-traffic logs.
 * **Pro-Tip:** Using "Negative search" helps clear the clutter when a specific error message is flooding the history. 🧹
+
+## Lesson 27: Broken Object Level Authorization (BOLA) a.k.a. IDOR [20.01.2026]
+**Focus:** Manipulating resource IDs to access unauthorized data.
+
+**Resource:** OWASP API Security Top 10.
+* [API1:2023 Broken Object Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/)
+* [Insecure direct object references (IDOR)](https://portswigger.net/web-security/access-control/idor)
+
+**Learnings:**
+* **Predictable IDs:** Learned that sequential IDs (1, 2, 3...) are high-risk targets.
+* **The Vulnerability:** The server authenticated me, but failed to authorize my access to a specific object.
+* **QA Insight:** Whenever I see an ID in a URL or a POST body, I must test if I can change it to view or modify data I don't own.
+
+## Day 28: Mass Assignment (API Property Level Authorization) [20.01.2026]
+**Focus:** Injecting hidden properties into API requests.
+
+**Resource:** OWASP API Security.
+* [OWASP API3:2023 Broken Object Property Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa3-broken-object-property-level-authorization/)
+* [Lab: Exploiting a mass assignment vulnerability](https://portswigger.net/web-security/api-testing/lab-exploiting-mass-assignment-vulnerability)
+
+**Learnings:**
+* **Unfiltered Input:** APIs that automatically map JSON input to database models are dangerous.
+* **The "Guessing" Game:** Attackers can guess hidden fields (like "isAdmin") even if the UI doesn't show them.
+* **QA Insight:** I should always check the API documentation (or Swagger files) to see all possible fields, then try to "over-post" them in my requests.
 
 
 
