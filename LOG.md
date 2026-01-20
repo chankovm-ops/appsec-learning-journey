@@ -295,5 +295,9 @@
 * **Scope Discipline:** Realized that "Show only in-scope items" is the first step to any successful test to avoid getting distracted by 3rd party traffic.
 * **QA Insight:** In a big enterprise app, I might generate 20,000 requests in a day. Mastery of filters is the only way to prove a bug happened at a specific timestamp.
 
+* **Search Context:** Confirmed that Burp searches both Request and Response by default.
+* **Refinement:** Learned to use Regex and Case Sensitivity to reduce false positives in high-traffic logs.
+* **Pro-Tip:** Using "Negative search" helps clear the clutter when a specific error message is flooding the history. 🧹
+
 
 
