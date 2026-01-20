@@ -273,7 +273,7 @@
 * **Efficiency:** Learned that Cluster Bomb is the most thorough but also the "noisiest" and slowest due to the high volume of requests ($List A \times List B$).
 * **QA Insight:** Automated brute forcing isn't just about speed; it's about choosing the right "Attack Type" to match the logic of the vulnerability I'm testing.
 
-## Day 29: Payload Processing Rules
+## Lesson 25: Payload Processing Rules [15.01.2026]
 **Focus:** Transforming data on-the-fly for complex attacks.
 
 **Resource:** Burp Suite Professional / Community Features.
@@ -282,3 +282,18 @@
 * **Scalability:** Learned that processing rules allow me to use a single "clean" wordlist for many different types of attacks.
 * **Chaining:** Discovered that I can stack rules (e.g., Prefix -> Hash -> Encode) to match the specific requirements of a modern web API.
 * **QA Insight:** Many bugs are hidden behind encoding. If I only test "plain text," I might miss vulnerabilities that only trigger when the data is formatted a certain way (like JSON or Base64).
+
+## Lesson 25: Advanced Filtering & Logging [20.01.2026]
+**Focus:** Managing high-volume traffic data.
+
+**Resource:** Burp Suite Proxy Filter & Logger.
+* [Filtering the HTTP history](https://portswigger.net/burp/documentation/desktop/tools/proxy/http-history/filter-settings)
+
+**Learnings:**
+* **The Filter Bar:** Learned to use "Search Term" and "Status Code" filters to find needles in haystacks.
+* **Logger vs. History:** Logger is the "Black Box" flight recorder of Burp—it sees everything, even automated tool traffic that doesn't hit the Proxy history.
+* **Scope Discipline:** Realized that "Show only in-scope items" is the first step to any successful test to avoid getting distracted by 3rd party traffic.
+* **QA Insight:** In a big enterprise app, I might generate 20,000 requests in a day. Mastery of filters is the only way to prove a bug happened at a specific timestamp.
+
+
+
