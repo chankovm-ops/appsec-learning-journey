@@ -311,17 +311,28 @@
 * **The Vulnerability:** The server authenticated me, but failed to authorize my access to a specific object.
 * **QA Insight:** Whenever I see an ID in a URL or a POST body, I must test if I can change it to view or modify data I don't own.
 
-## Day 28: Mass Assignment (API Property Level Authorization) [20.01.2026]
+## Lesson 28: Mass Assignment (API Property Level Authorization) [20.01.2026]
 **Focus:** Injecting hidden properties into API requests.
 
 **Resource:** OWASP API Security.
 * [OWASP API3:2023 Broken Object Property Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa3-broken-object-property-level-authorization/)
 * [Lab: Exploiting a mass assignment vulnerability](https://portswigger.net/web-security/api-testing/lab-exploiting-mass-assignment-vulnerability)
+* [Mass assignment vulnerabilities](https://portswigger.net/web-security/api-testing#mass-assignment-vulnerabilities)
 
 **Learnings:**
 * **Unfiltered Input:** APIs that automatically map JSON input to database models are dangerous.
 * **The "Guessing" Game:** Attackers can guess hidden fields (like "isAdmin") even if the UI doesn't show them.
 * **QA Insight:** I should always check the API documentation (or Swagger files) to see all possible fields, then try to "over-post" them in my requests.
 
+## Lesson 29: API Reconnaissance & Discovery [20.01.2026]
+**Focus:** Locating hidden documentation to map the attack surface.
 
+**Resource:** PortSwigger "Exploiting an API endpoint using documentation."
+* [Discovering API documentation](https://portswigger.net/web-security/api-testing#discovering-api-documentation)
+* [Lab: Exploiting an API endpoint using documentation](https://portswigger.net/web-security/api-testing/lab-exploiting-api-endpoint-using-documentation)
+
+**Learnings:**
+* **Information Leakage:** Documentation files like `swagger.json` or `openapi.json` are often left public, revealing hidden endpoints.
+* **Version Mining:** Checking `/v1/` or `/v2/` paths can reveal older, less secure versions of the same API.
+* **QA Insight:** API security starts with "Visibility." If I can find the documentation, I can systematically test every "Write" operation for BOLA and Mass Assignment.
 
